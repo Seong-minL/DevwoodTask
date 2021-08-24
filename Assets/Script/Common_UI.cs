@@ -59,11 +59,11 @@ public class Common_UI : MonoBehaviour
         this.Mp_Amount_UI = GameObject.Find("MP_Amount");
         this.character_Lv_UI = GameObject.Find("Character_Lv");
         this.character = GameObject.Find("Character");
-        this.character_Hp = this.character.GetComponent<UserController>().Hp;
-        this.character_Mp = this.character.GetComponent<UserController>().Mp;
+        this.character_Hp = this.character.GetComponent<UserController>().Character_Stat.Hp;
+        this.character_Mp = this.character.GetComponent<UserController>().Character_Stat.Mp;
         this.Remaining_Hp = this.character_Hp;
         this.Remaining_Mp = this.character_Mp;
-        this.character_Lv = this.character.GetComponent<UserController>().Level;
+        this.character_Lv = this.character.GetComponent<UserController>().Character_Stat.Level;
     }
 
     void Update()

@@ -6,14 +6,28 @@ using UnityEngine.SceneManagement;
 public class UserController : MonoBehaviour
 {
     // 유저 스탯
-    public int Hp = 200;  // 캐릭터 Hp
-    public int Mp = 200;  // 캐릭터 Mp
-    public int Level = 1;  // 캐릭터 레벨
-    public int STR = 5;  // 캐릭터 힘 스탯
-    public int DEX = 5;  // 캐릭터 민첩 스탯
-    public int INT = 5;  // 캐릭터 지능 스탯
-    public string Job = "초보자";  // 캐릭터 직업
+    public struct Stat
+    {
+        public int Hp;
+        public int Mp;
+        public int Level;
+        public int STR;
+        public int DEX;
+        public int INT;
+        public string Job;
+        public Stat (int HP, int MP, int Lv, int str, int dex, int Int, string JOB)
+        {
+            Hp = HP;
+            Mp = MP;
+            Level = Lv;
+            STR = str;
+            DEX = dex;
+            INT = Int;
+            Job = JOB;
+        }
+    }
 
+    public Stat Character_Stat = new Stat (200, 200, 1, 5, 5, 5, "초보자");
 
     // 캐릭터 제어 관련 변수
     Animator animator;  // 애니메이터
@@ -26,6 +40,7 @@ public class UserController : MonoBehaviour
     public bool ropeClimbing = false;  // 로프를 사용 중인지 여부
     float charlength = 0.53f;  // 캐릭터 대략적인 크기
     float groundlength;  // 맵 크기
+    int dir;
 
     void Start()
     {
@@ -91,9 +106,9 @@ public class UserController : MonoBehaviour
         }
 
         // 방향키에 따라 캐릭터 이동방향설정
-        int key = 0;
-        if (Input.GetKey(KeyCode.RightArrow)) key = 1;
-        if (Input.GetKey(KeyCode.LeftArrow)) key = -1;
+        this.dir = 0;
+        if (Input.GetKey(KeyCode.RightArrow)) this.dir = 1;
+        if (Input.GetKey(KeyCode.LeftArrow)) this.dir = -1;
 
         // 현재 이동속도를 구함
         float walkspeed = Mathf.Abs(this.rigid2D.velocity.x);
@@ -101,13 +116,13 @@ public class UserController : MonoBehaviour
         // 방향키를 누르면 이동
         if ((walkspeed < this.maxWalkSpeed) && !this.ropeClimbing)
         {
-            this.rigid2D.AddForce(transform.right * key * this.walkForce);
+            this.rigid2D.AddForce(transform.right * this.dir * this.walkForce);
         }
 
         // 방향키를 누르면 해당 방향에 맞게 이미지 반전
-        if (key != 0)
+        if (this.dir != 0)
         {
-            transform.localScale = new Vector3(-key, 1, 1);
+            transform.localScale = new Vector3(-this.dir, 1, 1);
         }
 
         // 캐릭터의 속도에 맞게 애니메이션 속도 조정

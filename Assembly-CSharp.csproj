@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{f0d55879-a6f2-f79f-5be1-e4646b8f1e8f}</ProjectGuid>
+    <ProjectGuid>{13d7e1d9-8fa9-4691-40ad-b753aea63896}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -38,17 +38,17 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Tutorial1_UI_Director.cs" />
      <Compile Include="Assets\Script\CameraController.cs" />
+     <Compile Include="Assets\Script\MonsterController.cs" />
      <Compile Include="Assets\Script\Tutorial3_UI.cs" />
      <Compile Include="Assets\Low_Swordman\Demo\Scripts\GroundSensor.cs" />
      <Compile Include="Assets\Low_Swordman\Demo\Scripts\Swordman.cs" />
+     <Compile Include="Assets\Script\Common_UI.cs" />
      <Compile Include="Assets\Script\UserController.cs" />
      <Compile Include="Assets\Script\Tutorial4_UI.cs" />
      <Compile Include="Assets\Script\WeaponController.cs" />
      <Compile Include="Assets\Script\Tutorial2_UI.cs" />
      <Compile Include="Assets\Low_Swordman\Demo\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Low_Swordman\Demo\Scripts\Demo_GM.cs" />
-     <Compile Include="Assets\Script\Common_UI.cs" />
-     <Compile Include="Assets\Script\MonsterController.cs" />
      <None Include="Assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\TXT\license.txt" />
      <None Include="Assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\TXT\readme.txt" />
     <Reference Include="UnityEngine">
@@ -274,13 +274,7 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-        <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-        <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -628,94 +622,94 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.IK.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.IK.Runtime">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
-        <HintPath>C:/Users/pilen/UnityStudy/DevwoodUnity/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+        <HintPath>C:/데브우드 수업/user1/DevwoodTask/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
