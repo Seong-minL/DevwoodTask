@@ -6,34 +6,40 @@ using UnityEngine.UI;
 public class MonsterController : MonoBehaviour
 {
     // 몬스터 기본 스탯
-    public int Attack = 10;
-    public int Defense = 0;
-    public int Hp = 50;
+    public int Attack = 10;  // 몬스터 공격력
+    public int Defense = 0;  // 몬스터 방어력
+    public int Hp = 50;  // 몬스터 체력
+    public int Drop_Exp = 1100;  // 처치 시 드랍 경험치
 
 
     // 몬스터 제어 관련 변수
     Rigidbody2D rigid2D;  // 몬스터의 물리엔진
     Animator animator;  // 몬스터의 애니메이터
-    GameObject Character;
-    GameObject Weapon;
+    GameObject Character;  // 유저 캐릭터
+    GameObject Weapon;  // 유저의 무기
     float MaxWalkSpeed = 2.0f;  // 몬스터의 최대 이동속도
     float WalkForce = 27.0f;  // 몬스터의 이동속도
     int turning_Ratio = 40;  // 방향전환 확률
     float turning_Span = 7.0f;  // 방향전환 주기
     float turning_delta = 0;  // 방향전환 주기 측정
     float stop_delta = 0;  // 정지시간 측정
-    int key = 1;  // 방향
+    int key = -1;  // 방향
     bool stop = false;  // 현재 멈춰있는가
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Sword" && this.Weapon.transform.localEulerAngles.z != 0)
+        // 만약 무기가 검이고, 공격 중일 때 닿았다면
+        if (this.Weapon.name == "Sword" && this.Weapon.transform.localEulerAngles.z != 0)
         {
+            // (캐릭터 공격력) * 2 - (몬스터 방어력) 만큼 대미지를 입읍
             int Attack_Force = this.Character.GetComponent<UserController>().Character_Stat.STR * 2;
             int Damage = Attack_Force - this.Defense;
             this.Hp -= Damage;
+
+            // 만약 체력이 다하면 사망
             if (this.Hp <= 0)
             {
+                this.Character.GetComponent<UserController>().DeltaExp += this.Drop_Exp;
                 Destroy(this.gameObject);
             }
         }
@@ -41,10 +47,36 @@ public class MonsterController : MonoBehaviour
 
     void Start()
     {
-        this.rigid2D = GetComponent<Rigidbody2D>();
-        this.animator = GetComponent<Animator>();
-        this.Character = GameObject.Find("Character");
-        this.Weapon = GameObject.Find("Sword");
+        this.rigid2D = GetComponent<Rigidbody2D>();  // 몬스터 물리엔진
+        this.animator = GetComponent<Animator>();  // 몬스터 애니메이터
+        this.Character = GameObject.Find("Character");  // 유저 캐릭터
+
+        // 유저의 직업에 따라 무기를 찾음
+        if (Character.GetComponent<UserController>().Character_Stat.Job == "초보자" ||
+            Character.GetComponent<UserController>().Character_Stat.Job == "전사" ||
+            Character.GetComponent<UserController>().Character_Stat.Job == "파이터" ||
+            Character.GetComponent<UserController>().Character_Stat.Job == "크루세이더" ||
+            Character.GetComponent<UserController>().Character_Stat.Job == "히어로")
+        {
+            // 전사 직업군, 초보자일 때는 검
+            this.Weapon = GameObject.Find("Sword");
+        }
+        else if (Character.GetComponent<UserController>().Character_Stat.Job == "궁수" ||
+                 Character.GetComponent<UserController>().Character_Stat.Job == "사수" ||
+                 Character.GetComponent<UserController>().Character_Stat.Job == "저격수" ||
+                 Character.GetComponent<UserController>().Character_Stat.Job == "신궁")
+        {
+            // 궁수 직업군일 때는 활
+            this.Weapon = GameObject.Find("Bow");
+        }
+        else if (Character.GetComponent<UserController>().Character_Stat.Job == "마법사" ||
+                 Character.GetComponent<UserController>().Character_Stat.Job == "위자드" ||
+                 Character.GetComponent<UserController>().Character_Stat.Job == "메이지" ||
+                 Character.GetComponent<UserController>().Character_Stat.Job == "아크메이지")
+        {
+            // 마법사 직업군일 때는 스태프
+            this.Weapon = GameObject.Find("Staff");
+        }
     }
 
     void Update()

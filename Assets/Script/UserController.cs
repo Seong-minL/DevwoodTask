@@ -8,13 +8,14 @@ public class UserController : MonoBehaviour
     // 유저 스탯
     public struct Stat
     {
-        public int Hp;
-        public int Mp;
-        public int Level;
-        public int STR;
-        public int DEX;
-        public int INT;
-        public string Job;
+        public int Hp;  // 피통
+        public int Mp;  // 마나통
+        public int Exp;  // 경험치통
+        public int Level;  // 레벨
+        public int STR;  // 힘스탯
+        public int DEX;  // 민첩스탯
+        public int INT;  // 지력스탯
+        public string Job;  // 직업
         public Stat (int HP, int MP, int Lv, int str, int dex, int Int, string JOB)
         {
             Hp = HP;
@@ -24,10 +25,38 @@ public class UserController : MonoBehaviour
             DEX = dex;
             INT = Int;
             Job = JOB;
+            if (Level <= 5)
+            {
+                Exp = 200;
+            }
+            else
+            {
+                Exp = 200 + (Level - 5) * 20;
+            }
+        }
+        public void LevelUp(int IncreaseLv)
+        {
+            Level += IncreaseLv;
+            if (Level <= 5)
+            {
+                Exp = 200;
+            }
+            else
+            {
+                Exp = 200 + (Level - 5) * 20;
+            }
+        }
+
+        public void ChangeJob(string ChangedJob)
+        {
+            Job = ChangedJob;
         }
     }
+    public Stat Character_Stat = new Stat (200, 200, 1, 5, 5, 5, "초보자");  // 캐릭터 스탯 설정
+    public int DeltaHp = 0;  // 체력 변화량
+    public int DeltaMp = 0;  // 마나 변화량
+    public int DeltaExp = 0;  // 경험치 변화량
 
-    public Stat Character_Stat = new Stat (200, 200, 1, 5, 5, 5, "초보자");
 
     // 캐릭터 제어 관련 변수
     Animator animator;  // 애니메이터
@@ -40,17 +69,33 @@ public class UserController : MonoBehaviour
     public bool ropeClimbing = false;  // 로프를 사용 중인지 여부
     float charlength = 0.53f;  // 캐릭터 대략적인 크기
     float groundlength;  // 맵 크기
-    int dir;
+    int dir;  // 캐릭터 이동방향
+    float Invincible_delta = 0;  // 몬스터 피격 후 무적 시간
+    bool isInvincible = false;  // 몬스터에게 피격당해 무적상태인가
 
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();  // 물리 엔진
         this.animator = GetComponent<Animator>();  // 애니메이터
         this.current_Scene = SceneManager.GetActiveScene();  // 현재 씬(맵)
-        int current_Scene_number = current_Scene.buildIndex;
+        int current_Scene_number = current_Scene.buildIndex;  // 현재 씬의 빌드 인덱스를 구함
+
+        // 현재 씬의 인덱스에 따라 배경 길이를 구함
         if (current_Scene_number >= 0)
         {
             this.groundlength = 18.0f;
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Monster" && !this.isInvincible)
+        {
+            this.isInvincible = true;
+            this.DeltaHp = other.gameObject.GetComponent<MonsterController>().Attack - this.Character_Stat.DEX;
+            this.rigid2D.AddForce(transform.right * -this.dir * this.walkForce * 5);
+            this.animator.SetTrigger("JumpTrigger");
+            this.rigid2D.AddForce(transform.up * (this.jumpForce / 2));
         }
     }
 
@@ -97,6 +142,16 @@ public class UserController : MonoBehaviour
 
     void Update()
     {
+        if (this.isInvincible)
+        {
+            this.Invincible_delta += Time.deltaTime;
+            if (this.Invincible_delta > 2.0f)
+            {
+                this.isInvincible = false;
+                this.Invincible_delta = 0;
+            }
+        }
+
         // 스페이스바를 누르면 점프한다
         if (Input.GetKeyDown(KeyCode.Space) && this.rigid2D.velocity.y == 0 && !this.ropeClimbing)
         {
